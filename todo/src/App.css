@@ -2,32 +2,169 @@
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+/*
+Colors
+#5ECEB0;
+#DBF3ED;
+#5E35B1
+#D81B60;
+#0E110D
+#191919;
+*/
+* {
+  box-sizing: border-box;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-size: 62.5%;
+  color: #dbf3ed;
+  background-color: #191919;
+  font-family: "Titillium Web", sans-serif;
+}
+
+.app {
+  margin: 0 auto;
+}
+.header {
+  width: 100%;
+  height: 100px;
+}
+
+h1 {
+  color: ##dbf3ed;
+  margin: 0;
+  padding: 30px 0 0;
+  font-size: 4rem;
+}
+
+.App {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+.toDo-List {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin: 50px 0;
+  text-align: left;
+  font-size: 2rem;
+  height: 100%;
 }
 
-.App-link {
-  color: #61dafb;
+.border-line {
+  border: 0.25px solid #dbf3ed;
+  margin-bottom: 50px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.item.completed {
+  text-decoration: line-through;
+}
+
+.form-box input {
+  width: 57%;
+  height: 32px;
+  font-size: 1.6rem;
+  border-radius: 4px;
+}
+
+input::placeholder {
+  color: #9aa0a6;
+}
+
+input {
+  padding-left: 15px;
+}
+
+.form-btn button {
+  -moz-border-radius: 8px;
+  -webkit-border-radius: 8px;
+  border-radius: 8px;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 1.8rem;
+  text-decoration: none;
+  margin-top: 10px;
+  color: #dbf3ed;
+  transition: background-color 0.2s, border 0.2s, color 0.2s;
+}
+
+.add-btn {
+  background-color: #191919;
+  border: 1px solid #dbf3ed;
+  width: 28%;
+  height: 100%;
+  padding: 2% 5%;
+  margin-right: 10px;
+  text-align: center;
+}
+
+.add-btn:hover {
+  background-color: #5e35b1;
+}
+
+.clear-btn {
+  background-color: #191919;
+  border: 1px solid #dbf3ed;
+  width: 28%;
+  height: 100%;
+  padding: 2% 5%;
+  text-align: center;
+}
+
+.clear-btn:hover {
+  background-color: #d81b60;
+}
+
+@media (max-width: 700px) {
+  h1 {
+    font-size: 3.6rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  .add-btn {
+    padding: 2% 3%;
+  }
+
+  .clear-btn {
+    padding: 2% 3%;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  .form-btn button {
+    font-size: 1.4rem;
+    margin-right: 5px;
+  }
+
+  .add-btn {
+    padding: 2% 1.3%;
+  }
+
+  .clear-btn {
+    padding: 2% 1.3%;
+  }
+}
+
+@media (max-width: 500px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 400px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  .form-btn button {
+    font-size: 1.1rem;
+    margin-right: 2px;
   }
 }
