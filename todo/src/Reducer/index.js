@@ -5,12 +5,15 @@ const initialState = {
   Todo: []
 };
 
-export default function(state = initialState, action) {
+function reducer(state = initialState, action) {
   switch (action.type) {
     case ADD_TODO:
       return {
-
-      }
+        ...state,
+        item: action.payload
+      };
+    default:
+      return state;
   }
 }
 
