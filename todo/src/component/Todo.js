@@ -1,8 +1,6 @@
 import React from "react";
 
 function Todo(props) {
-  // console.log("ITEM PROPS:", props)
-
   const clickHandler = () => {
     props.toggleItem(props.listItem.id);
   };

@@ -3,10 +3,10 @@ import ReactDOM from "react-dom";
 // import createStore & Provider
 import { createStore } from "redux";
 import { Provider } from "react-redux";
+import App from "./component/App";
 import reducer from "./Reducer";
 
 import "./index.css";
-import App from "./component/App";
 
 // This is the function that will take in a single reducer that will represent the state (data) of our application globally.
 const store = createStore(

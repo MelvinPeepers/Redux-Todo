@@ -1,46 +1,55 @@
 import React from "react";
+import { connect } from "react-redux";
+import { addTodo } from "../Actions";
 
 class TodoForm extends React.Component {
-  constructor(props) {
-    super(props);
-    // console.log("LIST ITEM PROPS", props)
-    this.state = {
-      listItem: ""
-    };
-  }
-
-  changeHandler = event => {
-    event.preventDefault();
-    this.setState({ listItem: event.target.value });
+  state = {
+    newText: ""
   };
 
-  submitHandler = event => {
+  changeHandle = event => {
     event.preventDefault();
-    // console.log("LIST ITEM PROPS", this.props)
-    this.props.addNewItem(this.state.listItem);
+    this.setState({ [event.target.name]: event.target.value });
   };
 
-  clearHandler = event => {
+  addTodo = event => {
     event.preventDefault();
-    this.props.clearCompleted();
+
+    const { newText } = this.state;
+    // Calling the action creator
+    this.props.addTodo(newText);
+    // resetting the form after it submits
+    this.setState({
+      newText: ""
+    });
+    console.log({ newText });
   };
+
+  // clearHandler = event => {
+  //   event.preventDefault();
+  //   this.props.clearCompleted();
+  // };
 
   render() {
-    const { listItem } = this.state;
+    const { newText } = this.state;
     return (
       <div className='form-box'>
-        <form onSubmit={this.submitHandler}>
+        <h1>Melvin's Fantastical Todo List</h1>
+        <form>
           <input
-            value={listItem}
-            placeholder='Add New Item'
             type='text'
-            onChange={this.changeHandler}
+            name='newText'
+            value={newText}
+            placeholder='Add New Item'
+            onChange={this.changeHandle}
           />
           <div className='form-btn'>
-            <button className='add-btn'>Add to List</button>
-            <button className='clear-btn' onClick={this.clearHandler}>
-              Clear Completed
+            <button className='add-btn' onClick={this.addTodo}>
+              Add to List
             </button>
+            {/* <button className='clear-btn' onClick={this.clearHandler}>
+              Clear Completed
+            </button> */}
           </div>
         </form>
       </div>
@@ -48,4 +57,20 @@ class TodoForm extends React.Component {
   }
 }
 
-export default TodoForm;
+const mapStateToProps = state => {
+  return {
+    todo: state.todo
+  };
+};
+
+// const mapDispatchToProps = state => {
+//   return {
+//     addTodo: addTodo
+//   };
+// };
+
+export default connect(
+  mapStateToProps,
+  { addTodo }
+  // mapDispatchToProps
+)(TodoForm);
