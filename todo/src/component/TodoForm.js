@@ -29,6 +29,7 @@ class TodoForm extends React.Component {
   };
 
   toggleTodo = id => {
+    id.preventDefault();
     this.props.toggleTodo(id);
   };
 
@@ -54,16 +55,16 @@ class TodoForm extends React.Component {
             </button> */}
           </div>
         </form>
-        <div>
+        <div className='ulcenter'>
           {this.props.todoTask.map((todo, index) => (
-            <div
+            <ul
               key={index}
               style={{
                 textDecoration: todo.complete ? "line-through" : "none"
               }}
             >
-              <h2 onClick={() => this.props.toggleTodo(index)}>{todo.task}</h2>
-            </div>
+              <li onClick={() => this.props.toggleTodo(index)}>{todo.task}</li>
+            </ul>
           ))}
         </div>
       </div>

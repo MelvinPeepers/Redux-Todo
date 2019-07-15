@@ -40,6 +40,17 @@ h1 {
   font-size: 4rem;
 }
 
+ul {
+  margin: 10px 10px;
+  text-align: center;
+  padding-right: 30px;
+}
+
+li {
+  font-size: 2rem;
+  list-style: none;
+}
+
 .App {
   text-align: center;
   margin: 0 auto;

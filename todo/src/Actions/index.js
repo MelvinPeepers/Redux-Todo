@@ -1,7 +1,7 @@
 // action types
 export const ADD_TODO = "ADD_TODO";
 export const TOGGLE_TODO = "TOGGLE_TODO";
-// export const CLEAR_TODO = "CLEAR_TODO";
+export const CLEAR_TODO = "CLEAR_TODO";
 
 //action creators
 export const addTodo = task => {
@@ -17,14 +17,14 @@ export const toggleTodo = id => {
   //action
   return {
     type: TOGGLE_TODO,
-    id: id
+    payload: id
   };
 };
 
-// export const clearTodo = id => {
-//   //action
-//   return {
-//     type: CLEAR_TODO,
-//     payload: id
-//   };
-// };
+export const clearTodo = id => {
+  //action
+  return {
+    type: CLEAR_TODO,
+    payload: id
+  };
+};
