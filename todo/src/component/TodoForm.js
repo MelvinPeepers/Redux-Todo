@@ -1,11 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
-import { addTodo } from "../Actions";
+import { addTodo, toggleTodo } from "../Actions";
 
 class TodoForm extends React.Component {
-  state = {
-    newText: ""
-  };
+  constructor() {
+    super();
+    this.state = {
+      newText: ""
+    };
+  }
 
   changeHandle = event => {
     event.preventDefault();
@@ -25,17 +28,16 @@ class TodoForm extends React.Component {
     console.log({ newText });
   };
 
-  // clearHandler = event => {
-  //   event.preventDefault();
-  //   this.props.clearCompleted();
-  // };
+  toggleTodo = id => {
+    this.props.toggleTodo(id);
+  };
 
   render() {
     const { newText } = this.state;
     return (
       <div className='form-box'>
         <h1>Melvin's Fantastical Todo List</h1>
-        <form>
+        <form onSubmit={this.addTodo}>
           <input
             type='text'
             name='newText'
@@ -52,6 +54,18 @@ class TodoForm extends React.Component {
             </button> */}
           </div>
         </form>
+        <div>
+          {this.props.todoTask.map((todo, index) => (
+            <div
+              key={index}
+              style={{
+                textDecoration: todo.complete ? "line-through" : "none"
+              }}
+            >
+              <h2 onClick={() => this.props.toggleTodo(index)}>{todo.task}</h2>
+            </div>
+          ))}
+        </div>
       </div>
     );
   }
@@ -59,18 +73,12 @@ class TodoForm extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    todo: state.todo
+    todoTask: state.todoTask
   };
 };
 
-// const mapDispatchToProps = state => {
-//   return {
-//     addTodo: addTodo
-//   };
-// };
-
 export default connect(
   mapStateToProps,
-  { addTodo }
+  { addTodo, toggleTodo }
   // mapDispatchToProps
 )(TodoForm);
