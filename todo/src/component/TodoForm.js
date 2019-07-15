@@ -30,7 +30,6 @@ class TodoForm extends React.Component {
 
   toggleTodo = (event, id) => {
     event.preventDefault();
-    console.log("toggle");
     this.props.toggleTodo(id);
   };
 
@@ -51,12 +50,10 @@ class TodoForm extends React.Component {
             <button className='add-btn' onClick={this.addTodo}>
               Add to List
             </button>
-            {/* <button className='clear-btn' onClick={this.clearHandler}>
-              Clear Completed
-            </button> */}
           </div>
         </form>
         <div>
+          {/* // this part makes it seen on the page */}
           {this.props.todoTask.map(task => (
             <ul key={task.id}>
               <li
