@@ -20,14 +20,14 @@ const reducer = (state = initialState, action) => {
     case TOGGLE_TODO:
       return {
         ...state,
-        todoTask: state.todoTask.map(todo => {
-          if (todo.id === action.payload) {
+        todoTask: state.todoTask.map(task => {
+          if (task.id === action.payload) {
             return {
-              ...todo,
-              completed: !todo.completed
+              ...task,
+              completed: !task.completed
             };
           }
-          return todo;
+          return task;
         })
       };
 

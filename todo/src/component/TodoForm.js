@@ -30,6 +30,7 @@ class TodoForm extends React.Component {
 
   toggleTodo = (event, id) => {
     event.preventDefault();
+    console.log("toggle");
     this.props.toggleTodo(id);
   };
 
@@ -56,15 +57,15 @@ class TodoForm extends React.Component {
           </div>
         </form>
         <div>
-          {this.props.todoTask.map((todo, id) => (
-            <ul key={id}>
+          {this.props.todoTask.map(task => (
+            <ul key={task.id}>
               <li
-                onClick={() => this.props.toggleTodo(id)}
+                onClick={() => this.props.toggleTodo(task.id)}
                 style={{
-                  textDecoration: todo.completed ? "line-through" : "none"
+                  textDecoration: task.completed ? "line-through" : "none"
                 }}
               >
-                {todo.task}
+                {task.task}
               </li>
             </ul>
           ))}
